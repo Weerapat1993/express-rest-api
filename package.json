@@ -1,9 +1,10 @@
 {
-  "name": "express-rest-api",
+  "name": "kunai-express",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "nodemon --exec babel-node ./bin/www"
+    "start": "npm run apidoc && nodemon --exec babel-node ./bin/www",
+    "apidoc": "apidoc -i app/Http/Controllers -o public"
   },
   "dependencies": {
     "body-parser": "~1.15.2",
@@ -19,6 +20,7 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
+    "apidoc": "^0.17.6",
     "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.2",
     "babel-preset-es2015": "^6.24.1",

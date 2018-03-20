@@ -1,9 +1,10 @@
-## Express REST API Starter Kit
+## Kunai Express
+- Express Restful API Starter Kit
 
 **How to Install**
 ```sh
-git clone https://github.com/Weerapat1993/express-rest-api.git
-cd express-rest-api
+git clone https://github.com/Weerapat1993/kunai-express.git
+cd kunai-express
 cp .env.example .env
 yarn
 ```

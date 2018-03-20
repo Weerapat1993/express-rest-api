@@ -6,7 +6,7 @@
 require('dotenv').config();
 
 var app = require('../app');
-var debug = require('debug')('refund-api:server');
+var debug = require('debug')('kunai-express:server');
 var http = require('http');
 var chalk = require('chalk');
 
