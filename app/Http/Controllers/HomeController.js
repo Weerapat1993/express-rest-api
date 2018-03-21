@@ -1,3 +1,4 @@
+import faker from 'faker';
 import { Controller } from './Controller';
 
 /**
@@ -9,7 +10,11 @@ import { Controller } from './Controller';
 
 class HomeController extends Controller {
   index() {
-    const data = 'Hello World';
+    const data = {
+      name: faker.name.findName(),
+      email: faker.internet.email(),
+      address: faker.address.streetAddress(),
+    };
     this.getSuccess(200, data);
   }
 }
