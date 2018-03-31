@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "npm run apidoc && nodemon --exec babel-node ./bin/www",
+    "dev": "npm run apidoc && nodemon --exec babel-node ./bin/www",
+    "start": "babel-node ./bin/www",
     "apidoc": "apidoc -i app/Http/Controllers -o public"
   },
   "dependencies": {
