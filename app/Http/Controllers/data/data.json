@@ -1,30 +1,6 @@
 
 {
   "$jason": {
-    "header": {
-      "title": {
-        "type": "image",
-        "url": "https://cdn1.iconfinder.com/data/icons/simple-icons/256/github-256-black.png"
-      }
-    },
-    "footer": {
-      "tabs": {
-        "items": [
-          {
-            "image": "https://png.icons8.com/metro/50/FFFFFF/home.png",
-            "url": "https://kunai-express.herokuapp.com"
-          },
-          {
-            "image": "https://png.icons8.com/metro/50/FFFFFF/home.png",
-            "url": "https://kunai-express.herokuapp.com"
-          },
-          {
-            "image": "https://png.icons8.com/metro/50/FFFFFF/home.png",
-            "url": "https://kunai-express.herokuapp.com"
-          }
-        ]
-      }
-    },
     "head": {
       "title": "Kitty Home",
       "description": "Sorted by time",
