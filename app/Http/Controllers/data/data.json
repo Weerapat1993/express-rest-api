@@ -1,152 +1,194 @@
+
 {
   "$jason": {
+    "header": {
+      "title": {
+        "type": "image",
+        "url": "https://cdn1.iconfinder.com/data/icons/simple-icons/256/github-256-black.png"
+      }
+    },
+    "footer": {
+      "tabs": {
+        "items": [
+          {
+            "image": "https://png.icons8.com/metro/50/FFFFFF/home.png",
+            "url": "https://kunai-express.herokuapp.com"
+          },
+          {
+            "image": "https://png.icons8.com/metro/50/FFFFFF/home.png",
+            "url": "https://kunai-express.herokuapp.com"
+          },
+          {
+            "image": "https://png.icons8.com/metro/50/FFFFFF/home.png",
+            "url": "https://kunai-express.herokuapp.com"
+          }
+        ]
+      }
+    },
     "head": {
-      "title": "Dynamic Layers",
+      "title": "Kitty Home",
+      "description": "Sorted by time",
       "actions": {
+        "$pull": {
+          "trigger": "fetch"
+        },
+        "$foreground": {
+          "trigger": "fetch"
+        },
+        "$show": {
+          "trigger": "fetch"
+        },
         "$load": {
-          "type": "$set",
+          "trigger": "fetch"
+        },
+        "fetch": {
+          "type": "$network.request",
           "options": {
-            "style": {
-              "width": "86",
-              "height": "175",
-              "bottom": "70",
-              "left": "50%-43"
-            }
+            "url": "https://posts.producthunt.com/posts/currentUser?categoryId=1&filter=popular&page=0"
           },
           "success": {
             "type": "$render"
-          }
-        },
-        "resizable": {
-          "type": "$set",
-          "options": {
-            "style": "{{var new_style = $get.style; new_style['resize']='true'; return new_style;}}"
-          },
-          "success": {
-            "type": "$util.banner",
-            "options": {
-              "title": "Now resizable",
-              "description": "Try pinching Mario with two fingers"
-            },
-            "success": {
-              "type": "$render"
-            }
-          }
-        },
-        "draggable": {
-          "type": "$set",
-          "options": {
-            "style": "{{var new_style = $get.style; new_style['move']='true'; return new_style;}}"
-          },
-          "success": {
-            "type": "$util.banner",
-            "options": {
-              "title": "Now draggable",
-              "description": "Try dragging Mario around"
-            },
-            "success": {
-              "type": "$render"
-            }
-          }
-        },
-        "rotatable": {
-          "type": "$set",
-          "options": {
-            "style": "{{var new_style = $get.style; new_style['rotate']='true'; return new_style;}}"
-          },
-          "success": {
-            "type": "$util.banner",
-            "options": {
-              "title": "Now rotatable",
-              "description": "Try rotating Mario with two fingers"
-            },
-            "success": {
-              "type": "$render"
-            }
           }
         }
       },
       "templates": {
         "body": {
           "style": {
-            "background": "https://jasonette.github.io/Jasonpedia/assets/mariobackground.jpg"
+            "background": "#230B0F",
+            "color": "#ffffff",
+            "border": "none"
           },
           "header": {
-            "style": {
-              "background": "rgba(0,0,0,0)"
-            },
-            "menu": {
-              "text": "View JSON",
-              "href": {
-                "url": "https://github.com/Jasonette/Jasonpedia/blob/gh-pages/view/layer/dynamic.json",
-                "view": "web"
+            "title": {
+              "type": "image",
+              "url": "https://raw.githubusercontent.com/gliechtenstein/Images/master/icon.jpeg",
+              "style": {
+                "width": "20",
+                "height": "20"
               }
+            },
+            "style": {
+              "background": "#230B0F",
+              "font": "AvenirNext-Heavy",
+              "size": "14",
+              "shyt": "true",
+              "color": "#ffffff"
             }
           },
-          "layers": [{
-            "type": "label",
-            "text": "IN THIS DEMO, MARIO IS A DYNAMIC LAYER, WHICH MEANS YOU CAN RESIZE, DRAG, ROTATE HIM.\n\nBUT FIRST, PRESS THE BUTTONS TO ACTIVATE EACH FEATURE",
-            "style": {
-              "font": "Verdana",
-              "color": "#fdfdfd",
-              "size": "15",
-              "top": "100",
-              "left": "10%",
-              "width": "80%",
-              "height": "150",
-              "align": "center"
+          "footer": {
+            "tabs": {
+              "style": {
+                "background": "#230B0F",
+                "color": "#ffffff"
+              },
+              "items": [
+                {
+                  "image": "https://raw.githubusercontent.com/gliechtenstein/Images/master/clock.png",
+                  "url": "https://raw.githubusercontent.com/gliechtenstein/kitty.json/master/index.json"
+                },
+                {
+                  "image": "https://raw.githubusercontent.com/gliechtenstein/Images/master/fire.png",
+                  "url": "https://raw.githubusercontent.com/gliechtenstein/kitty.json/master/popular.json"
+                }
+              ]
             }
-          }, {
-            "type": "label",
-            "text": "Draggable",
-            "action": {
-              "trigger": "draggable"
-            },
-            "style": {
-              "align": "center",
-              "bottom": "30",
-              "left": "50%-50",
-              "width": "100",
-              "padding": "10",
-              "background": "#6e2111",
-              "color": "#ffffff",
-              "corner_radius": "3"
+          },
+          "sections": {
+            "{{#each $jason.posts.sort(function(a,b){  return new Date(b.created_at) - new Date(a.created_at);}) }}": {
+              "header": {
+                "type": "label",
+                "text": "{{(function(){var d = new Date(created_at); var day = d.getDay(); var daymap = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']; var realDay = daymap[parseInt(day)]; var h = d.getHours(); var m = d.getMinutes(); var suffix = (h > 11 ? 'pm' : 'am'); var hh = (h > 12 ? h - 12 : h); var mm = (m > 9 ? m : '0'+m); return realDay + ' ' + hh + ':' + mm + ' ' + suffix;})()}}",
+                "style": {
+                  "background": "#230B0F",
+                  "font": "HelveticaNeue-CondensedBold",
+                  "padding": "10",
+                  "color": "#ffffff",
+                  "size": "12"
+                }
+              },
+              "items": [
+                {
+                  "type": "vertical",
+                  "action": {
+                    "type": "$href",
+                    "options": {
+                      "url": "https://raw.githubusercontent.com/gliechtenstein/kitty.json/master/detail.json",
+                      "options": {
+                        "id": "{{id.toString()}}",
+                        "name": "{{name}}",
+                        "slug": "{{slug}}",
+                        "shortened_link": "https://www.producthunt.com{{shortened_url}}"
+                      }
+                    }
+                  },
+                  "style": {
+                    "background": "#ffffff"
+                  },
+                  "components": [
+                    {
+                      "type": "vertical",
+                      "components": [
+                        {
+                          "type": "horizontal",
+                          "style": {
+                            "distribution": "fill",
+                            "padding": "10",
+                            "spacing": "10"
+                          },
+                          "components": [
+                            {
+                              "type": "vertical",
+                              "style": {
+                                "distribution": "fill",
+                                "spacing": "5"
+                              },
+                              "components": [
+                                {
+                                  "type": "label",
+                                  "style": {
+                                    "size": "18",
+                                    "font": "AvenirNext-Heavy",
+                                    "color": "#cb4924"
+                                  },
+                                  "text": "{{name}}"
+                                },
+                                {
+                                  "type": "label",
+                                  "style": {
+                                    "font": "AvenirNext-Regular",
+                                    "size": "12",
+                                    "color": "#000000"
+                                  },
+                                  "text": "{{tagline}}"
+                                },
+                                {
+                                  "type": "label",
+                                  "style": {
+                                    "font": "HelveticaNeue-Bold",
+                                    "size": "12",
+                                    "color": "#000000"
+                                  },
+                                  "text": "{{'👍 ' + vote_count.toString() + '  ·  ' + '💬 ' + comment_count.toString()}}"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "image",
+                      "url": "{{thumbnail.image_url}}",
+                      "style": {
+                        "width": "100%",
+                        "padding": "0"
+                      }
+                    }
+                  ]
+                }
+              ]
             }
-          }, {
-            "type": "label",
-            "text": "Resizable",
-            "action": {
-              "trigger": "resizable"
-            },
-            "style": {
-              "align": "center",
-              "bottom": "30",
-              "right": "20",
-              "padding": "10",
-              "background": "#6e2111",
-              "color": "#ffffff",
-              "corner_radius": "3"
-            }
-          }, {
-            "type": "label",
-            "text": "Rotatable",
-            "action": {
-              "trigger": "rotatable"
-            },
-            "style": {
-              "align": "center",
-              "bottom": "30",
-              "left": "20",
-              "padding": "10",
-              "background": "#6e2111",
-              "color": "#ffffff",
-              "corner_radius": "3"
-            }
-          }, {
-            "type": "image",
-            "url": "https://jasonette.github.io/Jasonpedia/assets/0.png",
-            "style": "{{$get.style}}"
-          }]
+          }
         }
       }
     }
