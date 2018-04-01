@@ -10,7 +10,7 @@ import data from './data/data.json';
 
 class JsonController extends Controller {
   index() {
-    this.getSuccess(200, data);
+    this.response.json(data);
   }
 }
 
