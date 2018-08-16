@@ -1,0 +1,25 @@
+db:
+  image: mysql
+  restart: always
+  container_name: docker-mysql
+  environment:
+    MYSQL_DATABASE: my_db
+    MYSQL_ROOT_PASSWORD: 1234
+  ports:
+    - '3306:3306'
+phpmyadmin:
+  image: phpmyadmin/phpmyadmin
+  links: [db]
+  container_name: docker-phpmyadmin
+  ports:
+    - '8080:80'
+# web:
+#   build: .
+#   container_name: docker-web
+#   env_file:
+#     - .env
+#   environment:
+#     - NODE_ENV=development
+#     - PORT=8000
+#   ports:
+#     - '9999:8000'
