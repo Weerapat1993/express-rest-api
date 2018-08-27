@@ -5,6 +5,8 @@ import favicon from 'serve-favicon';
 import logger from 'morgan';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
+import graphqlHTTP from 'express-graphql';
+import { Schema } from './database/graphql/schema';
 import { ErrorMiddleware } from './app/Http/Middleware';
 
 import web from './routes/web';
@@ -28,6 +30,10 @@ app.use(cors());
 
 app.use('/', web);
 app.use('/api', api);
+app.use('/graphql', graphqlHTTP({
+  schema: Schema,
+  graphiql: true,
+}));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
