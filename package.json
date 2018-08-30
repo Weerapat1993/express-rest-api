@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "npm run apidoc && nodemon --exec babel-node ./bin/www",
-    "start": "babel-node ./bin/www",
+    "dev": "nodemon -e js,graphql -x babel-node ./bin/www",
+    "start": "nodemon -e js,graphql -x babel-node ./bin/www",
     "apidoc": "apidoc -i app/Http/Controllers -o public"
   },
   "dependencies": {
@@ -17,7 +17,9 @@
     "express": "~4.14.0",
     "express-graphql": "^0.6.12",
     "faker": "^4.1.0",
+    "fs-extra": "^7.0.0",
     "graphql": "^0.13.2",
+    "graphql-tools": "^3.1.1",
     "graphql-yoga": "^1.16.1",
     "jade": "~1.11.0",
     "lodash": "^4.17.5",

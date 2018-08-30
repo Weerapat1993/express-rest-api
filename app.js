@@ -8,7 +8,7 @@ import bodyParser from 'body-parser';
 import graphqlHTTP from 'express-graphql';
 import hash from 'object-hash';
 import querystring from 'querystring';
-import { Schema } from './database/graphql/schema';
+import { Schema } from './database/graphql';
 import { ErrorMiddleware } from './app/Http/Middleware';
 
 import web from './routes/web';
