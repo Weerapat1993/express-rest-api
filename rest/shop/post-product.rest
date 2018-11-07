@@ -1,0 +1,12 @@
+@endpoint = http://localhost:3000/api
+@path = /products
+
+POST {{endpoint}}{{path}}
+Content-Type: application/json
+
+{
+  "product_id": "product:3",
+  "product_name": "New Product 3",
+  "product_price": 200,
+  "shop_id": "shop:1"
+}

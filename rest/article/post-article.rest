@@ -1,0 +1,11 @@
+@endpoint = http://localhost:8000/api
+@path = /articles
+
+POST {{endpoint}}{{path}}
+Content-Type: application/json
+
+{
+  "title": "Title 2",
+  "description": "## Test 2",
+  "user_id": 1
+}

@@ -1,0 +1,10 @@
+@endpoint = http://localhost:8000/api
+@path = /register
+
+POST {{endpoint}}{{path}}
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "123456"
+}

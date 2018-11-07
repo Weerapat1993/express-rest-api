@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { codeStatus } from './codeStatus';
 
 /**
@@ -13,7 +12,7 @@ import { codeStatus } from './codeStatus';
  * @property {(code: number) => Response} status
  * @property {(json: Object) => Response} json
  */
-class BaseController {
+class Middleware {
   /**
    * Class Controller
    * @constructor
@@ -71,4 +70,4 @@ class BaseController {
   }
 }
 
-export default BaseController;
+export default Middleware;

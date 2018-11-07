@@ -1,0 +1,10 @@
+@endpoint = http://localhost:8000/api
+@path = /articles
+
+PUT {{endpoint}}{{path}}
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "Title New Messsage 5"
+}

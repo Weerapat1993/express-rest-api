@@ -1,0 +1,6 @@
+@endpoint = http://localhost:8000/api
+@path = /refund-orders
+@id = reforder:490d5858-0309-4c7c-99df-827800398c32 
+
+GET {{endpoint}}{{path}}/{{id}}
+Content-Type: application/json

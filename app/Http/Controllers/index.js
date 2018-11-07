@@ -1,9 +1,11 @@
 import HomeController from './HomeController';
-import JsonController from './JsonController';
+import UserController from './UserController';
+import ProductController from './ProductController';
 
 const Controller = {
   HomeController,
-  JsonController,
+  UserController,
+  ProductController,
 };
 
 export default Controller;

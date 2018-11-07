@@ -1,0 +1,4 @@
+@auth = http://localhost:8000/api/users/token
+GET {{auth}}
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IndlZXJhcGF0LnRoYXdhdGNob2tldGF3ZWVAZ21haWwuY29tIiwiaWF0IjoxNTIwMDA3NjIyfQ.OPkcpaMzNlFB8Xi-aTK1aS7I0AgXLCi_5tR7v66VSiE

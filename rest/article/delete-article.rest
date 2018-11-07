@@ -1,0 +1,9 @@
+@endpoint = http://localhost:8000/api
+@path = /articles
+
+DELETE {{endpoint}}{{path}}
+Content-Type: application/json
+
+{
+  "id": 25
+}
