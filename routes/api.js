@@ -16,4 +16,11 @@ router.post('/login', Route('UserController', 'login'));
 router.get('/products/', Route('ProductController', 'getList'));
 router.get('/products/:id', Route('ProductController', 'getByID'));
 
+// Articles
+router.get('/articles', Route('ArticleController', 'getList'));
+router.get('/articles/:id', Route('ArticleController', 'getByID'));
+router.post('/articles', Route('ArticleController', 'postByID'));
+router.put('/articles', Route('ArticleController', 'updateByID'));
+router.delete('/articles', Route('ArticleController', 'deleteByID'));
+
 export default router;

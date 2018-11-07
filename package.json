@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "nodemon -e js,graphql -x babel-node ./bin/www",
+    "dev": "npm run apidoc && nodemon -e js,graphql -x babel-node ./bin/www",
     "start": "nodemon -e js,graphql -x babel-node ./bin/www",
     "migrate": "knex migrate:latest",
     "make:migration": "knex migrate:make",
@@ -13,7 +13,7 @@
     "migrate:refresh": "npm run migrate:reset && npm run migrate && npm run db:seed",
     "make:seeder": "knex seed:make",
     "db:seed": "knex seed:run",
-    "apidoc": "apidoc -i app/Http/Controllers -o public"
+    "apidoc": "apidoc -i app/Http/Controllers/ -o public"
   },
   "dependencies": {
     "body-parser": "~1.15.2",

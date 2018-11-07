@@ -7,9 +7,8 @@ const User = ModelBase.extend({
 
   validate: {
     email: Joi.string().required(),
-    name: Joi.string(),
+    name: Joi.string().required(),
     avatar: Joi.string(),
-    password: Joi.string(),
   },
 });
 
