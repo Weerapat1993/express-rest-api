@@ -24,12 +24,14 @@ export class Controller extends BaseController {
     const paramID = id || this.request.params.id;
     this.Expectation(async () => {
       const data = await this.Model
-        .collection()
-        .query((qb) => {
-          this.query(qb);
-          return { where: { [this.primaryKey]: paramID } };
-        })
-        .fetchOne();
+        // .collection()
+        // .query((qb) => {
+        //   this.query(qb);
+        //   return { where: { [this.primaryKey]: paramID } };
+        // })
+        // .fetchOne();
+        .where(this.primaryKey, paramID)
+        .fetch();
       if (data) {
         await this.getSuccess(statusCode || 200, data);
       } else {
