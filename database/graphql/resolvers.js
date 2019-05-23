@@ -1,4 +1,5 @@
 import { find, filter } from 'lodash';
+import Article from '../../app/Models/Article';
 
 const authors = [
   { id: 1, firstName: 'Tom', lastName: 'Coleman' },
@@ -17,6 +18,15 @@ export const resolvers = {
   Query: {
     posts: () => posts,
     author: (_, { id }) => find(authors, { id }),
+    // articles: async () => {
+    //   const articles = Article
+    //     .collection()
+    //     .query((qb) => {
+    //       this.query(qb);
+    //     })
+    //     .fetch();
+    //   return articles;
+    // },
   },
   Mutation: {
     upvotePost: (_, { postId }) => {
